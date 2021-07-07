@@ -1,6 +1,11 @@
 from django.db import models
 
-# Create your models here.
 
 class Users(models.Model):
-    firstname = models.CharField()
+    firstName = models.CharField(max_length=32)
+    secondName = models.CharField(max_length=64)
+    mail = models.EmailField(unique=True)
+    password = models.CharField(max_length=32)
+
+    def __str__(self):
+        return self.mail
